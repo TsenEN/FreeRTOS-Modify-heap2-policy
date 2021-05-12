@@ -128,6 +128,7 @@ pxScanBig->xBlockSize = 0 ;
 			TotalSize = (uint32_t)pxBlockToInsert + xBlockSize;
 			if(TotalSize == (uint32_t)(pxIterator->pxNextFreeBlock))
 			{
+				/* remove pxScanBig from free list */
 				pxScanBig = (pxIterator->pxNextFreeBlock);
 				pxIterator->pxNextFreeBlock = pxScanBig->pxNextFreeBlock;
 				pxIterator = pxScanBig;
