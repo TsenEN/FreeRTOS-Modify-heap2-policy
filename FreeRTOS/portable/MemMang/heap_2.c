@@ -137,6 +137,8 @@ pxScanBig->xBlockSize = 0 ;
 			}
 		}
 		pxIterator = pxIterator->pxNextFreeBlock;
+		if(pxScanSmall && pxScanBig)
+			break;
 	}
 	if(pxScanSmall || pxScanBig){
 		if(pxScanSmall){
