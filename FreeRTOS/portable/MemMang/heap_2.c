@@ -115,6 +115,7 @@ pxScanBig->xBlockSize = 0 ;
 			TotalSize = (uint32_t)(pxIterator->pxNextFreeBlock) + (pxIterator->pxNextFreeBlock->xBlockSize);
 			/* insert item address = free list item address + size  */
 			if(TotalSize == (uint32_t)pxBlockToInsert){
+				/* remove pxScanSmall from free list */
 				pxScanSmall = (pxIterator->pxNextFreeBlock);
 				pxIterator->pxNextFreeBlock = pxScanSmall->pxNextFreeBlock;
 				pxIterator = pxScanSmall;
