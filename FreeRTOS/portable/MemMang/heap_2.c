@@ -119,7 +119,6 @@ pxScanBig->xBlockSize = 0 ;
 				pxScanSmall = (pxIterator->pxNextFreeBlock);
 				pxIterator->pxNextFreeBlock = pxScanSmall->pxNextFreeBlock;
 				pxIterator = pxScanSmall;
-				merge = 1;
 				continue;
 			}
 		}
@@ -132,7 +131,6 @@ pxScanBig->xBlockSize = 0 ;
 				pxScanBig = (pxIterator->pxNextFreeBlock);
 				pxIterator->pxNextFreeBlock = pxScanBig->pxNextFreeBlock;
 				pxIterator = pxScanBig;
-				merge = 1;
 				continue;
 			}
 		}
@@ -157,6 +155,7 @@ pxScanBig->xBlockSize = 0 ;
 			pxBlockToInsert->xBlockSize += pxScanBig->xBlockSize;
 		}
 	}
+
 	xBlockSize = pxBlockToInsert->xBlockSize;
 	/* Iterate through the list until a block is found that has a larger size */
 	/* than the block we are inserting. */
